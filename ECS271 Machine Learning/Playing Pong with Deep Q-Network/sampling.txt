@@ -1,0 +1,8 @@
+samples = random.sample(self.buffer, batch_size)
+s_df = pd.DataFrame(samples)
+state = s_df.iloc[:, 0]
+action = s_df.iloc[:, 1]
+reward = s_df.iloc[:, 2]
+next_state = s_df.iloc[:, 3]
+done = s_df.iloc[:, 4]
+return np.concatenate(state), action, reward, np.concatenate(next_state), done

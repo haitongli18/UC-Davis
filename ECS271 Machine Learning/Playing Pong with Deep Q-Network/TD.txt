@@ -1,0 +1,8 @@
+curr_q_value = model.forward(state).gather(1, action.unsqueeze(1)).view(-1)
+target_q_value, _ = target_model.forward(next_state).max(1)
+    
+target = reward + (gamma * target_q_value)
+target = target.view(-1)
+
+losses = (target - curr_q_value).pow(2)
+loss = torch.sum(losses)

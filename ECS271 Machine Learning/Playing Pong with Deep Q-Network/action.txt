@@ -1,0 +1,2 @@
+q_value = self.forward(state)
+action = torch.max(q_value,1)[1]
